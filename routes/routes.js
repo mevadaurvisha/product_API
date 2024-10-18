@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express';
 const routes = express.Router();
-const productRoutes = require('./product');
+import productRoutes from './product.js';
 
 routes.use('/products' , productRoutes);
 
-module.exports = routes;
+export default routes;

@@ -1,9 +1,11 @@
-const express = require('express');
+import express from 'express';
 const productRoutes = express.Router();
-const controller = require('../controllers/productCon');
+import {createProductCon, getProductCon, singleProductCon, updateProductCon, deleteProductCon} from '../controllers/productCon.js';
 
-productRoutes.post('/' , controller.createProductCon);
-productRoutes.get('/' , controller.getProductCon);
+productRoutes.post('/' , createProductCon);
+productRoutes.get('/' , getProductCon);
+productRoutes.get('/:id' , singleProductCon);
+productRoutes.put('/:id' , updateProductCon);
+productRoutes.delete('/:id' , deleteProductCon);
 
-
-module.exports = productRoutes;
+export default productRoutes;

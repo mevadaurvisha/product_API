@@ -1,13 +1,13 @@
-const express = require('express');
+import express from 'express';
 const app = express();
-const bodyParser = require('body-parser');
-const routes = require('./routes/routes');
+import bodyParser from 'body-parser';
+import routes from './routes/routes.js';
 const port = 3000;
-const db = require('./config/db');
+import db from './config/db.js';
 
-app.use('/v1', routes);
+app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
-app.use(express.json());
+app.use('/v1', routes);
 
 app.listen(port , (err) => {
 
